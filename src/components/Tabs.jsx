@@ -19,6 +19,7 @@ import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import CancelRoundedIcon from '@mui/icons-material/CancelRounded';
 import TabContent from "./TabContent.jsx";
+import isDblTouchTap from "../common/isDblTouchTap.js";
 
 const iconsObj = {
   Inventory2OutlinedIcon,
@@ -267,6 +268,11 @@ const DraggableTabs = () => {
                                   : null
                               }
                               onClick={() => handleTabClick(index)}
+                              onTouchStart={(e) => {
+                                if (isDblTouchTap(e)) {
+                                  handleRightClick(e, id);
+                                }
+                              }}
                               onContextMenu={(e) => handleRightClick(e, id)}
                               aria-owns={anchorElPopover ? 'mouse-over-popover' : undefined}
                               aria-haspopup="true"
