@@ -350,6 +350,12 @@ const DraggableTabs = () => {
                             handleTabClick(tabs.findIndex(t => t.id === tab.id));
                             handleMenuClose();
                           }}
+                          onContextMenu={(e) => handleRightClick(e, tab.id)}
+                          onTouchStart={(e) => {
+                            if (isDblTouchTap(e)) {
+                              handleRightClick(e, tab.id);
+                            }
+                          }}
                           sx={{display: 'flex', justifyContent: 'space-between', backgroundColor: tabs?.[activeTab]?.id === tab?.id ? '#F1F5F8' : 'white'}}
                         >
                           <Box display={'flex'} alignItems={'center'}>
