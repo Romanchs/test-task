@@ -182,7 +182,7 @@ const DraggableTabs = () => {
   }, [tabs]);
 
   return (
-    <Box sx={{width: '100%', height: '100vh', overflowY: 'hidden', pt: 6}}>
+    <Box sx={{width: '100%', height: '100dvh', overflowY: 'hidden', pt: 6}}>
       <DragDropContext onDragEnd={onDragEnd}>
         <Droppable droppableId="tabs" direction="horizontal">
           {(provided) => (
