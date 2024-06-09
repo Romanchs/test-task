@@ -376,4 +376,3 @@ const DraggableTabs = () => {
 };
 
 export default DraggableTabs;
-//
