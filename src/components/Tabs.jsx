@@ -109,6 +109,10 @@ const DraggableTabs = () => {
   const updateDropdownTabs = () => {
     if (!containerRef.current) return;
 
+    if(dropdownTabs.length === 0) {
+      setAnchorEl(null);
+    }
+
     const containerWidth = containerRef.current.offsetWidth;
     const tabWidthPinned = 60;
     const tabWidthUnPinned = 125;
@@ -136,10 +140,6 @@ const DraggableTabs = () => {
       if (visibleTab) {
         setActiveTab(tabs.findIndex(tab => tab.id === visibleTab.id));
       }
-    }
-
-    if(dropdownTabs.length === 0) {
-      setAnchorEl(null);
     }
 
     setShowShadow(pinnedTabs.length * tabWidthPinned > containerWidth);
@@ -255,7 +255,7 @@ const DraggableTabs = () => {
                                 !pinned && label
                                   ?
                                   (<Box display={'flex'} alignItems={'center'} gap={2}> {label}
-                                    { activeTab === index && (
+                                    { activeTab === index && tabs.length !== 1 && (
                                       <IconButton
                                         sx={{height: '10px', width: '10px'}}
                                         component="div"
