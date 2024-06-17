@@ -1,4 +1,4 @@
-import {useState, useEffect, useRef, useCallback} from 'react';
+import {useState, useEffect, useRef} from 'react';
 import {Tabs, Tab, IconButton, Menu, MenuItem, Box, SvgIcon, Divider, Popover} from '@mui/material';
 import { DragDropContext, Droppable, Draggable } from '@hello-pangea/dnd';
 import { tabsClasses } from '@mui/material/Tabs';
@@ -168,7 +168,7 @@ const DraggableTabs = () => {
 
       setTabs(updatedTabs);
       setActiveTab(0);
-    };
+  };
 
   useEffect(() => {
     window.addEventListener('resize', updateDropdownTabs);
