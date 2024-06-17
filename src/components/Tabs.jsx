@@ -156,7 +156,7 @@ const DraggableTabs = () => {
     setAnchorElPopover(null);
   };
 
-  const handleClose = useCallback((event, id) => {
+  const handleClose = (event, id) => {
       event.stopPropagation();
 
       const tabToDeleteIndex = tabs.findIndex(
@@ -168,9 +168,7 @@ const DraggableTabs = () => {
 
       setTabs(updatedTabs);
       setActiveTab(0);
-    },
-    [tabs]
-  );
+    };
 
   useEffect(() => {
     window.addEventListener('resize', updateDropdownTabs);
